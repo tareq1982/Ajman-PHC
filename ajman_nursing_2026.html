@@ -1,0 +1,1487 @@
+<title>Ajman Nursing 2026</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:wght@600;700&display=swap');
+
+:root {
+  --navy: #325277;
+  --navy-deep: #1e3a5c;
+  --navy-light: #3B577A;
+  --blue-grey: #A9B4C6;
+  --sky: #e8edf4;
+  --cream: #f7f8fa;
+  --surface: #ffffff;
+  --text-primary: #1a2332;
+  --text-secondary: #4a5568;
+  --text-muted: #8494a7;
+  --green: #2E7D46;
+  --green-bg: #e8f5ec;
+  --amber: #B7791F;
+  --amber-bg: #fef3cd;
+  --red: #B23B3B;
+  --red-bg: #fde8e8;
+  --border: #e2e8f0;
+  --card-shadow: 0 1px 3px rgba(50,82,119,0.08), 0 4px 12px rgba(50,82,119,0.04);
+  --card-hover: 0 4px 16px rgba(50,82,119,0.12), 0 8px 32px rgba(50,82,119,0.06);
+  --transition: 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+  color-scheme: light;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --navy: #6b9fd4;
+    --navy-deep: #8bb5de;
+    --navy-light: #7aa8d0;
+    --blue-grey: #5a6b80;
+    --sky: #1e2a3a;
+    --cream: #0f1722;
+    --surface: #172030;
+    --text-primary: #e8edf4;
+    --text-secondary: #a0b0c4;
+    --text-muted: #5a6b80;
+    --green: #4ade80;
+    --green-bg: #0f2918;
+    --amber: #fbbf24;
+    --amber-bg: #2a1f08;
+    --red: #f87171;
+    --red-bg: #2a0f0f;
+    --border: #2a3a50;
+    --card-shadow: 0 1px 3px rgba(0,0,0,0.2), 0 4px 12px rgba(0,0,0,0.1);
+    --card-hover: 0 4px 16px rgba(0,0,0,0.3), 0 8px 32px rgba(0,0,0,0.15);
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --navy: #6b9fd4;
+  --navy-deep: #8bb5de;
+  --navy-light: #7aa8d0;
+  --blue-grey: #5a6b80;
+  --sky: #1e2a3a;
+  --cream: #0f1722;
+  --surface: #172030;
+  --text-primary: #e8edf4;
+  --text-secondary: #a0b0c4;
+  --text-muted: #5a6b80;
+  --green: #4ade80;
+  --green-bg: #0f2918;
+  --amber: #fbbf24;
+  --amber-bg: #2a1f08;
+  --red: #f87171;
+  --red-bg: #2a0f0f;
+  --border: #2a3a50;
+  --card-shadow: 0 1px 3px rgba(0,0,0,0.2), 0 4px 12px rgba(0,0,0,0.1);
+  --card-hover: 0 4px 16px rgba(0,0,0,0.3), 0 8px 32px rgba(0,0,0,0.15);
+  color-scheme: dark;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+
+body {
+  background: var(--cream);
+  color: var(--text-primary);
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  line-height: 1.6;
+  padding-inline: 0;
+  overflow-x: hidden;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
+}
+
+/* Navigation */
+.nav {
+  position: sticky;
+  top: env(safe-area-inset-top, 0px);
+  z-index: 100;
+  background: var(--surface);
+  border-bottom: 1px solid var(--border);
+  backdrop-filter: blur(12px);
+  padding: 0 16px;
+}
+.nav-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 56px;
+  gap: 12px;
+}
+.nav-brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-weight: 700;
+  color: var(--navy);
+  font-size: 15px;
+  white-space: nowrap;
+}
+.nav-brand .dot {
+  width: 8px; height: 8px;
+  background: var(--navy);
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+.nav-controls {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.nav-counter {
+  font-variant-numeric: tabular-nums;
+  font-size: 13px;
+  color: var(--text-muted);
+  min-width: 60px;
+  text-align: center;
+}
+.nav-btn {
+  width: 36px; height: 36px;
+  border-radius: 8px;
+  border: 1px solid var(--border);
+  background: var(--surface);
+  color: var(--text-secondary);
+  cursor: pointer;
+  display: grid;
+  place-items: center;
+  transition: all 0.2s;
+  font-size: 16px;
+}
+.nav-btn:hover { background: var(--sky); color: var(--navy); }
+.nav-btn:focus-visible { outline: 2px solid var(--navy); outline-offset: 2px; }
+.nav-btn:disabled { opacity: 0.3; cursor: not-allowed; }
+
+.progress-bar {
+  height: 2px;
+  background: var(--border);
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+}
+.progress-fill {
+  height: 100%;
+  background: var(--navy);
+  transition: width var(--transition);
+}
+
+/* Section pills */
+.section-nav {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 12px 16px;
+  display: flex;
+  gap: 6px;
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+.section-nav::-webkit-scrollbar { display: none; }
+.section-pill {
+  padding: 6px 14px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.03em;
+  white-space: nowrap;
+  cursor: pointer;
+  border: 1px solid var(--border);
+  background: var(--surface);
+  color: var(--text-secondary);
+  transition: all 0.2s;
+}
+.section-pill:hover { border-color: var(--navy); color: var(--navy); }
+.section-pill.active { background: var(--navy); color: #fff; border-color: var(--navy); }
+
+/* Slides container */
+.slides-viewport {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 16px;
+  min-height: calc(100vh - 120px);
+}
+
+.slide {
+  display: none;
+  opacity: 0;
+  transform: translateY(20px);
+  padding-block: 24px;
+}
+.slide.active {
+  display: block;
+  animation: slideIn 0.5s var(--transition) forwards;
+}
+@keyframes slideIn {
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Slide header */
+.slide-header {
+  margin-bottom: 28px;
+}
+.slide-eyebrow {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--navy);
+  margin-bottom: 6px;
+}
+.slide-title {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: clamp(24px, 4vw, 36px);
+  font-weight: 700;
+  color: var(--text-primary);
+  line-height: 1.15;
+  text-wrap: balance;
+  margin-bottom: 6px;
+}
+.slide-subtitle {
+  font-size: 15px;
+  color: var(--text-secondary);
+  max-width: 65ch;
+}
+
+/* Stat cards */
+.stat-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 12px;
+  margin-bottom: 24px;
+}
+.stat-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: var(--card-shadow);
+  transition: all var(--transition);
+  position: relative;
+  overflow: hidden;
+}
+.stat-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 3px;
+  background: var(--navy);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform var(--transition);
+}
+.stat-card:hover { box-shadow: var(--card-hover); transform: translateY(-2px); }
+.stat-card:hover::before { transform: scaleX(1); }
+.stat-number {
+  font-size: 32px;
+  font-weight: 800;
+  color: var(--navy);
+  line-height: 1;
+  font-variant-numeric: tabular-nums;
+  margin-bottom: 4px;
+}
+.stat-label {
+  font-size: 13px;
+  color: var(--text-secondary);
+  line-height: 1.3;
+}
+.stat-period {
+  font-size: 11px;
+  color: var(--text-muted);
+  margin-top: 6px;
+}
+
+/* Tables */
+.table-wrap {
+  overflow-x: auto;
+  border-radius: 12px;
+  border: 1px solid var(--border);
+  box-shadow: var(--card-shadow);
+  margin-bottom: 24px;
+  background: var(--surface);
+}
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13px;
+  font-variant-numeric: tabular-nums;
+}
+thead th {
+  background: var(--navy);
+  color: #fff;
+  font-weight: 600;
+  padding: 12px 16px;
+  text-align: left;
+  white-space: nowrap;
+  font-size: 12px;
+  letter-spacing: 0.02em;
+}
+tbody td {
+  padding: 10px 16px;
+  border-bottom: 1px solid var(--border);
+  color: var(--text-primary);
+}
+tbody tr { transition: background 0.15s; }
+tbody tr:nth-child(even) { background: var(--sky); }
+tbody tr:hover { background: color-mix(in srgb, var(--navy) 8%, transparent); }
+
+/* Charts */
+.chart-container {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 24px;
+  box-shadow: var(--card-shadow);
+  margin-bottom: 24px;
+  position: relative;
+}
+.chart-title {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 16px;
+}
+.bar-chart { display: flex; flex-direction: column; gap: 10px; }
+.bar-row {
+  display: grid;
+  grid-template-columns: 120px 1fr 50px;
+  align-items: center;
+  gap: 12px;
+}
+.bar-label {
+  font-size: 13px;
+  color: var(--text-secondary);
+  text-align: right;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.bar-track {
+  height: 28px;
+  background: var(--sky);
+  border-radius: 4px;
+  overflow: hidden;
+  position: relative;
+}
+.bar-fill {
+  height: 100%;
+  border-radius: 4px;
+  transition: width 1s cubic-bezier(0.22, 1, 0.36, 1);
+  width: 0;
+  position: relative;
+}
+.bar-fill.animated { width: var(--target-width); }
+.bar-value {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text-primary);
+  font-variant-numeric: tabular-nums;
+}
+
+/* Band markers */
+.band-marker {
+  position: absolute;
+  top: 0; bottom: 0;
+  border-left: 2px dashed var(--green);
+  opacity: 0.5;
+  z-index: 1;
+}
+
+/* Stacked bar */
+.stacked-bar-chart { display: flex; flex-direction: column; gap: 10px; }
+.stacked-row {
+  display: grid;
+  grid-template-columns: 100px 1fr;
+  align-items: center;
+  gap: 12px;
+}
+.stacked-track {
+  height: 32px;
+  background: var(--sky);
+  border-radius: 4px;
+  display: flex;
+  overflow: hidden;
+}
+.stacked-segment {
+  height: 100%;
+  transition: width 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 11px;
+  font-weight: 600;
+  color: #fff;
+  min-width: 0;
+  border-right: 2px solid var(--surface);
+}
+.stacked-segment:last-child { border-right: none; }
+
+/* Legend */
+.chart-legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin-top: 12px;
+}
+.legend-item {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 12px;
+  color: var(--text-secondary);
+}
+.legend-dot {
+  width: 10px; height: 10px;
+  border-radius: 3px;
+  flex-shrink: 0;
+}
+
+/* Doughnut */
+.doughnut-wrap {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  flex-wrap: wrap;
+}
+.doughnut-labels {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.doughnut-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.doughnut-swatch {
+  width: 14px; height: 14px;
+  border-radius: 4px;
+  flex-shrink: 0;
+}
+.doughnut-text {
+  font-size: 14px;
+  color: var(--text-secondary);
+}
+.doughnut-text strong {
+  color: var(--text-primary);
+  font-weight: 600;
+}
+
+/* Content blocks */
+.content-block {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 20px 24px;
+  margin-bottom: 16px;
+  box-shadow: var(--card-shadow);
+}
+.content-block h3 {
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--navy);
+  margin-bottom: 8px;
+}
+.content-block p, .content-block li {
+  font-size: 14px;
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+.content-block ul { padding-left: 20px; margin: 0; }
+.content-block li { margin-bottom: 4px; }
+
+/* Why box */
+.why-box {
+  background: color-mix(in srgb, var(--navy) 6%, var(--surface));
+  border-left: 3px solid var(--navy);
+  border-radius: 0 8px 8px 0;
+  padding: 14px 18px;
+  margin-bottom: 16px;
+}
+.why-box .why-label {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--navy);
+  margin-bottom: 4px;
+}
+.why-box p {
+  font-size: 14px;
+  color: var(--text-secondary);
+  margin: 0;
+}
+
+/* Source line */
+.source-line {
+  font-size: 11px;
+  color: var(--text-muted);
+  margin-top: 16px;
+  padding-top: 12px;
+  border-top: 1px solid var(--border);
+}
+
+/* Section divider slide */
+.section-divider {
+  min-height: 50vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+.divider-inner { max-width: 500px; }
+.divider-badge {
+  display: inline-block;
+  padding: 8px 24px;
+  background: var(--navy);
+  color: #fff;
+  border-radius: 24px;
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  margin-bottom: 16px;
+}
+.divider-subtitle {
+  font-size: 16px;
+  color: var(--text-secondary);
+}
+
+/* Cover slide */
+.cover-slide {
+  min-height: 60vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  gap: 16px;
+}
+.cover-service-lines {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--navy);
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+}
+.cover-title {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: clamp(32px, 6vw, 52px);
+  font-weight: 700;
+  color: var(--text-primary);
+  line-height: 1.1;
+}
+.cover-year {
+  font-size: 20px;
+  font-weight: 300;
+  color: var(--text-secondary);
+}
+.cover-desc {
+  max-width: 60ch;
+  font-size: 15px;
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+.cover-meta {
+  font-size: 12px;
+  color: var(--text-muted);
+  max-width: 60ch;
+}
+
+/* Decisions box */
+.decisions-box {
+  background: var(--surface);
+  border: 2px solid var(--navy);
+  border-radius: 12px;
+  padding: 20px 24px;
+  margin-bottom: 16px;
+}
+.decisions-box h3 {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--navy);
+  margin-bottom: 12px;
+  letter-spacing: 0.03em;
+}
+.decisions-box li {
+  font-size: 14px;
+  color: var(--text-secondary);
+  margin-bottom: 6px;
+}
+
+/* Status badges */
+.status-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 2px 10px;
+  border-radius: 12px;
+  font-size: 11px;
+  font-weight: 600;
+}
+.status-green { background: var(--green-bg); color: var(--green); }
+.status-amber { background: var(--amber-bg); color: var(--amber); }
+.status-red { background: var(--red-bg); color: var(--red); }
+
+/* Kirkpatrick */
+.kirk-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 12px;
+  margin-bottom: 24px;
+}
+.kirk-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 16px;
+  box-shadow: var(--card-shadow);
+  transition: transform 0.3s;
+}
+.kirk-card:hover { transform: translateY(-2px); }
+.kirk-level {
+  font-size: 32px;
+  font-weight: 800;
+  color: var(--navy);
+  opacity: 0.2;
+  line-height: 1;
+}
+.kirk-name {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--navy);
+  margin-bottom: 4px;
+}
+.kirk-status {
+  font-size: 13px;
+  color: var(--text-secondary);
+}
+
+/* Org chart */
+.org-chart {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 24px;
+}
+.org-row {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.org-box {
+  background: var(--surface);
+  border: 2px solid var(--navy);
+  border-radius: 10px;
+  padding: 12px 18px;
+  text-align: center;
+  min-width: 180px;
+  transition: all 0.3s;
+}
+.org-box:hover { background: color-mix(in srgb, var(--navy) 6%, var(--surface)); transform: scale(1.02); }
+.org-box.top { background: var(--navy); color: #fff; border-color: var(--navy); }
+.org-name { font-size: 14px; font-weight: 600; }
+.org-role { font-size: 12px; color: var(--text-muted); }
+.org-box.top .org-role { color: rgba(255,255,255,0.75); }
+.org-connector {
+  width: 2px; height: 16px;
+  background: var(--navy);
+  opacity: 0.3;
+}
+
+/* Numbered items */
+.numbered-list { counter-reset: item; }
+.numbered-item {
+  display: grid;
+  grid-template-columns: 40px 1fr;
+  gap: 12px;
+  margin-bottom: 16px;
+  counter-increment: item;
+}
+.numbered-item::before {
+  content: counter(item);
+  width: 36px; height: 36px;
+  background: var(--navy);
+  color: #fff;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  font-size: 15px;
+  font-weight: 700;
+  flex-shrink: 0;
+}
+.numbered-item .item-title {
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+.numbered-item .item-body {
+  font-size: 14px;
+  color: var(--text-secondary);
+}
+.numbered-item .item-measure {
+  font-size: 12px;
+  color: var(--navy);
+  font-weight: 500;
+  margin-top: 4px;
+}
+
+/* Slide-in stagger for children */
+.stagger > * {
+  opacity: 0;
+  transform: translateY(12px);
+  animation: fadeUp 0.4s forwards;
+}
+.stagger > *:nth-child(1) { animation-delay: 0.05s; }
+.stagger > *:nth-child(2) { animation-delay: 0.1s; }
+.stagger > *:nth-child(3) { animation-delay: 0.15s; }
+.stagger > *:nth-child(4) { animation-delay: 0.2s; }
+.stagger > *:nth-child(5) { animation-delay: 0.25s; }
+.stagger > *:nth-child(6) { animation-delay: 0.3s; }
+.stagger > *:nth-child(7) { animation-delay: 0.35s; }
+.stagger > *:nth-child(8) { animation-delay: 0.4s; }
+.stagger > *:nth-child(9) { animation-delay: 0.45s; }
+.stagger > *:nth-child(10) { animation-delay: 0.5s; }
+
+@keyframes fadeUp {
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Minimap / TOC */
+.toc-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.5);
+  z-index: 200;
+  display: none;
+  backdrop-filter: blur(4px);
+}
+.toc-overlay.open { display: block; }
+.toc-panel {
+  position: fixed;
+  right: 0; top: 0; bottom: 0;
+  width: min(380px, 90vw);
+  background: var(--surface);
+  z-index: 201;
+  overflow-y: auto;
+  padding: 24px;
+  box-shadow: -4px 0 24px rgba(0,0,0,0.1);
+  transform: translateX(100%);
+  transition: transform 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.toc-overlay.open .toc-panel { transform: translateX(0); }
+.toc-close {
+  position: absolute;
+  top: 16px; right: 16px;
+  width: 32px; height: 32px;
+  border: none; background: none;
+  font-size: 20px;
+  cursor: pointer;
+  color: var(--text-muted);
+  border-radius: 6px;
+}
+.toc-close:hover { background: var(--sky); }
+.toc-title {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 16px;
+}
+.toc-item {
+  padding: 8px 12px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.15s;
+  margin-bottom: 2px;
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+}
+.toc-item:hover { background: var(--sky); }
+.toc-item.current { background: color-mix(in srgb, var(--navy) 10%, var(--surface)); }
+.toc-num {
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--text-muted);
+  font-variant-numeric: tabular-nums;
+  min-width: 20px;
+}
+.toc-text {
+  font-size: 13px;
+  color: var(--text-secondary);
+}
+.toc-item.section-head .toc-text {
+  font-weight: 600;
+  color: var(--navy);
+  font-size: 12px;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+@media (max-width: 600px) {
+  .bar-row { grid-template-columns: 80px 1fr 40px; }
+  .stat-number { font-size: 26px; }
+  .stacked-row { grid-template-columns: 80px 1fr; }
+  .org-box { min-width: 140px; padding: 10px 12px; }
+  .kirk-grid { grid-template-columns: 1fr 1fr; }
+}
+</style>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <div class="nav-brand"><span class="dot"></span> Ajman Nursing 2026</div>
+    <div class="nav-controls">
+      <button class="nav-btn" onclick="openToc()" aria-label="Table of contents">&#9776;</button>
+      <button class="nav-btn" id="prevBtn" onclick="go(-1)" aria-label="Previous">&#8249;</button>
+      <span class="nav-counter" id="counter">1 / 31</span>
+      <button class="nav-btn" id="nextBtn" onclick="go(1)" aria-label="Next">&#8250;</button>
+    </div>
+  </div>
+  <div class="progress-bar"><div class="progress-fill" id="progress"></div></div>
+</nav>
+
+<div class="section-nav" id="sectionNav"></div>
+
+<div class="toc-overlay" id="tocOverlay" onclick="closeToc()">
+  <div class="toc-panel" onclick="event.stopPropagation()">
+    <button class="toc-close" onclick="closeToc()">&times;</button>
+    <div class="toc-title">All Slides</div>
+    <div id="tocList"></div>
+  </div>
+</div>
+
+<div class="slides-viewport" id="viewport"></div>
+
+<script>
+const SECTIONS = [
+  { name: 'Overview', start: 1, end: 5 },
+  { name: 'PHC', start: 6, end: 11 },
+  { name: 'PHS', start: 12, end: 15 },
+  { name: 'School Health', start: 16, end: 20 },
+  { name: 'Quality', start: 21, end: 24 },
+  { name: 'Workforce', start: 25, end: 27 },
+  { name: 'Strategy', start: 28, end: 31 }
+];
+
+const DIVIDERS = { 6: 'PRIMARY HEALTHCARE', 12: 'PUBLIC HEALTH SERVICES', 16: 'SCHOOL HEALTH', 21: 'QUALITY & SAFETY', 25: 'WORKFORCE & GOVERNANCE' };
+
+let current = 1;
+
+function buildSlides() {
+  const vp = document.getElementById('viewport');
+  // Slide 1 - Cover
+  vp.innerHTML = buildCover() + buildSlide2() + buildSlide3() + buildSlide4() + buildSlide5() +
+    buildDivider(6, 'PRIMARY HEALTHCARE', 'Slides 7–11') +
+    buildSlide7() + buildSlide8() + buildSlide9() + buildSlide10() + buildSlide11() +
+    buildDivider(12, 'PUBLIC HEALTH SERVICES', 'Slides 13–15') +
+    buildSlide13() + buildSlide14() + buildSlide15() +
+    buildDivider(16, 'SCHOOL HEALTH', 'Slides 17–20') +
+    buildSlide17() + buildSlide18() + buildSlide19() + buildSlide20() +
+    buildDivider(21, 'QUALITY & SAFETY', 'Slides 22–24') +
+    buildSlide22() + buildSlide23() + buildSlide24() +
+    buildDivider(25, 'WORKFORCE & GOVERNANCE', 'Slides 26–27') +
+    buildSlide26() + buildSlide27() +
+    buildSlide28() + buildSlide29() + buildSlide30() + buildSlide31();
+  showSlide(1);
+  buildSectionNav();
+  buildToc();
+}
+
+function buildCover() {
+  return `<div class="slide" data-slide="1">
+    <div class="cover-slide stagger">
+      <div class="cover-service-lines">PHC &nbsp;|&nbsp; PHS &nbsp;|&nbsp; School Health</div>
+      <div class="cover-title">Ajman Nursing Services</div>
+      <div class="cover-year">2026 Executive Overview</div>
+      <div class="cover-desc">An integrated community nursing system — prevention, early detection, primary care, family and school health, patient safety and continuity of care.</div>
+      <div class="cover-meta">Prepared by: Nursing Administration — Ajman PHC, PHS & School Health | Tareq Mohammed Abu Alkhair, Nurse Manager<br>Data period: January – August 2026 | Issued September 2026 | Classification: Internal</div>
+    </div></div>`;
+}
+
+function buildSlide2() {
+  return `<div class="slide" data-slide="2"><div class="stagger">
+    <div class="slide-header"><div class="slide-eyebrow">Overview</div>
+    <div class="slide-title">Organizational Structure</div>
+    <div class="slide-subtitle">Nursing Department — Ajman PHC, 2026</div></div>
+    <div class="org-chart">
+      <div class="org-row"><div class="org-box top"><div class="org-name">Jihan Salem Marzooq</div><div class="org-role">Assistant Director of Nursing Affairs</div></div></div>
+      <div class="org-connector"></div>
+      <div class="org-row">
+        <div class="org-box"><div class="org-name">Tareq Mohammed Abu Alkhair</div><div class="org-role">Nurse Manager — 5 PHCs</div></div>
+        <div class="org-box"><div class="org-name">Nadia Qasem</div><div class="org-role">Nurse Manager — PHS & School Health</div></div>
+      </div>
+      <div class="org-connector"></div>
+      <div class="org-row">
+        <div class="org-box"><div class="org-name">UMs / Charge Nurses</div><div class="org-role">Madina · Hamidiya · Mushairef · Manama · Muzeirah</div></div>
+        <div class="org-box"><div class="org-name">PHS CN · SH Unit Manager</div><div class="org-role">Fouzia Abdul Rab · Hanadi Amoorah</div></div>
+      </div>
+    </div>
+    <div class="content-block"><p>Support: 2 Clinical Resource Nurses · Informatics Nurse · Nursing Admin Assistants</p></div>
+  </div></div>`;
+}
+
+function buildSlide3() {
+  return `<div class="slide" data-slide="3"><div class="stagger">
+    <div class="slide-header"><div class="slide-eyebrow">Network</div>
+    <div class="slide-title">Ajman Service Network</div>
+    <div class="slide-subtitle">Five PHCs, PHS with 3 Medical Fitness Centres, and 33 schools</div></div>
+    <div class="stat-grid">
+      <div class="stat-card"><div class="stat-number">5</div><div class="stat-label">Primary Healthcare Centres</div><div class="stat-period">Al Madina · Al Hamidiya · Mushairef · Al Manama · Al Muzeirah</div></div>
+      <div class="stat-card"><div class="stat-number">1</div><div class="stat-label">Public Health Services centre</div><div class="stat-period">+ 3 Medical Fitness Centres</div></div>
+      <div class="stat-card"><div class="stat-number">33</div><div class="stat-label">Schools covered</div><div class="stat-period">KG through Cycle 3</div></div>
+      <div class="stat-card"><div class="stat-number">109</div><div class="stat-label">Nurses & midwives</div><div class="stat-period">Aug 2026</div></div>
+    </div>
+  </div></div>`;
+}
+
+function buildSlide4() {
+  return `<div class="slide" data-slide="4"><div class="stagger">
+    <div class="slide-header"><div class="slide-eyebrow">Snapshot</div>
+    <div class="slide-title">Ajman Nursing at a Glance</div>
+    <div class="slide-subtitle">August 2026 snapshot unless stated</div></div>
+    <div class="stat-grid">
+      <div class="stat-card"><div class="stat-number">109</div><div class="stat-label">nurses & midwives</div><div class="stat-period">Aug 2026</div></div>
+      <div class="stat-card"><div class="stat-number">9</div><div class="stat-label">clinical sites</div><div class="stat-period">5 PHCs, PHS, 3 MFCs</div></div>
+      <div class="stat-card"><div class="stat-number">42</div><div class="stat-label">School Health staff</div><div class="stat-period">38.5% of nurses</div></div>
+      <div class="stat-card"><div class="stat-number">11,911</div><div class="stat-label">patient visits</div><div class="stat-period">August 2026</div></div>
+      <div class="stat-card"><div class="stat-number">73%</div><div class="stat-label">hold a BSN</div><div class="stat-period">83 of 113 staff</div></div>
+      <div class="stat-card"><div class="stat-number">12.4%</div><div class="stat-label">Emirati</div><div class="stat-period">14 of 113 staff</div></div>
+      <div class="stat-card"><div class="stat-number">12.2</div><div class="stat-label">yrs average experience</div><div class="stat-period">mean age 41.9</div></div>
+      <div class="stat-card"><div class="stat-number">33</div><div class="stat-label">schools on profile</div><div class="stat-period">19,464 students</div></div>
+    </div>
+    <div class="why-box"><div class="why-label">Why it matters</div><p>School Health is the largest single nursing group, yet it is the only service line without a line in the monthly KPI report.</p></div>
+  </div></div>`;
+}
+
+function buildSlide5() {
+  return `<div class="slide" data-slide="5"><div class="stagger">
+    <div class="slide-header"><div class="slide-eyebrow">Executive Summary</div>
+    <div class="slide-title">Five Facts for Leadership</div>
+    <div class="slide-subtitle">Strong clinical compliance, a structural productivity gap</div></div>
+    <div class="numbered-list">
+      <div class="numbered-item"><div><div class="item-title">One integrated service</div><div class="item-body">109 nurses & midwives across 5 PHCs, PHS with 3 MFCs, and School Health — 42 staff covering 33 schools.</div></div></div>
+      <div class="numbered-item"><div><div class="item-title">Clinical compliance is strong</div><div class="item-body">Documentation met target in 48 of 48 centre-months; Hand Hygiene 46 of 48; Pain Reassessment 100% at all six centres since July.</div></div></div>
+      <div class="numbered-item"><div><div class="item-title">Productivity is the structural gap</div><div class="item-body">0 of 48 clinic readings reached the 95% lower limit. Jan–Aug averages: 25.8%–55.2% in clinics, 98.6%–120.8% in fitness centres.</div></div></div>
+      <div class="numbered-item"><div><div class="item-title">Patient Identification is the live safety priority</div><div class="item-body">QIP across 9 sites: staff knowledge 83.2% → 94.8%. In August, 2 of 6 centres still below 100% target.</div></div></div>
+      <div class="numbered-item"><div><div class="item-title">Oversight visit — 12 Nov 2026</div><div class="item-body">11 of 23 facility-owned criteria have no evidence on file (25 Sep 2026 scan); Professional Development is the widest gap.</div></div></div>
+    </div>
+    <div class="decisions-box"><h3>DECISIONS REQUESTED</h3><ul>
+      <li>Confirm how the 95%–115% productivity band applies to low-volume sites.</li>
+      <li>Protect staff time to close the 11 empty oversight criteria before 12 Nov 2026.</li>
+      <li>Re-validate the leadership records that have lapsed (41 of 96 current).</li>
+      <li>Decide on the Assistant Nurse School Health pilot (2 ANs, 2026–27).</li>
+      <li>Adopt one approved KPI target register.</li>
+    </ul></div>
+  </div></div>`;
+}
+
+function buildDivider(n, title, sub) {
+  return `<div class="slide" data-slide="${n}"><div class="section-divider stagger">
+    <div class="divider-inner"><div class="divider-badge">${title}</div>
+    <div class="divider-subtitle">${sub}</div></div></div></div>`;
+}
+
+function buildSlide7() {
+  const data = [
+    { label: 'Al Hamidiya', value: 55.2 },
+    { label: 'Al Madina', value: 41.8 },
+    { label: 'Mushairef', value: 40.8 },
+    { label: 'Al Manama', value: 38.7 },
+    { label: 'Al Muzeirah', value: 25.8 }
+  ];
+  let bars = data.map(d => `<div class="bar-row">
+    <div class="bar-label">${d.label}</div>
+    <div class="bar-track"><div class="bar-fill" style="--target-width:${d.value/120*100}%; background: ${d.value >= 95 ? 'var(--green)' : d.value >= 55 ? 'var(--amber)' : 'var(--navy)'}"></div></div>
+    <div class="bar-value">${d.value}%</div></div>`).join('');
+  return `<div class="slide" data-slide="7"><div class="stagger">
+    <div class="slide-header"><div class="slide-eyebrow">PHC</div>
+    <div class="slide-title">PHC Nursing Overview</div>
+    <div class="slide-subtitle">Productivity January–August 2026 average by centre</div></div>
+    <div class="chart-container"><div class="chart-title">Clinic Productivity — Jan–Aug 2026 Average %</div>
+    <div class="bar-chart">${bars}</div>
+    <div style="margin-top:8px;font-size:12px;color:var(--text-muted)">Band target: 95%–115%. No PHC clinic reached the lower limit.</div></div>
+    <div class="stat-grid">
+      <div class="stat-card"><div class="stat-number">8,774</div><div class="stat-label">PHC visits</div><div class="stat-period">August 2026</div></div>
+      <div class="stat-card"><div class="stat-number">50</div><div class="stat-label">PHC nurses</div><div class="stat-period">Aug 2026</div></div>
+      <div class="stat-card"><div class="stat-number">40.5%</div><div class="stat-label">Avg productivity</div><div class="stat-period">Jan–Aug 2026</div></div>
+    </div>
+    <div class="why-box"><div class="why-label">Why it matters</div><p>All five clinics are structurally below the 95% productivity band — a system-wide gap, not a single-centre issue.</p></div>
+  </div></div>`;
+}
+
+function buildSlide8() {
+  return `<div class="slide" data-slide="8"><div class="stagger">
+    <div class="slide-header"><div class="slide-eyebrow">PHC</div>
+    <div class="slide-title">PHC Nursing Services</div>
+    <div class="slide-subtitle">Services delivered at the five Primary Healthcare Centres</div></div>
+    <div class="stat-grid">
+      <div class="stat-card"><div class="stat-number">1</div><div class="stat-label">GP / Family Medicine clinics</div></div>
+      <div class="stat-card"><div class="stat-number">2</div><div class="stat-label">NCD management</div></div>
+      <div class="stat-card"><div class="stat-number">3</div><div class="stat-label">Treatment rooms</div></div>
+      <div class="stat-card"><div class="stat-number">4</div><div class="stat-label">Periodic care screening</div></div>
+      <div class="stat-card"><div class="stat-number">5</div><div class="stat-label">Vaccination & injection</div></div>
+      <div class="stat-card"><div class="stat-number">6</div><div class="stat-label">Home visits & follow-up</div></div>
+    </div>
+  </div></div>`;
+}
+
+function buildSlide9() {
+  const rows = [
+    ['Al Madina', 'UM Massoma · ACN Fariba', '14', '11', '2,301', '41.8%', '0 / 8', '97.4%', '95.8%'],
+    ['Al Hamidiya', 'ACN Pauline Espina', '13', '12', '3,203', '55.2%', '0 / 8', '98.4%', '98.9%'],
+    ['Mushairef', 'AUM Amna · ACN Manju', '15', '11', '2,424', '40.8%', '0 / 8', '100.0%', '97.4%'],
+    ['Al Manama', 'UM Mozah · ACN Neema', '6', '3', '602', '38.7%', '0 / 8', '99.0%', '99.2%'],
+    ['Al Muzeirah', 'ACN Rohini', '2', '5', '244', '25.8%', '0 / 8', '99.8%', '92.2%']
+  ];
+  const headers = ['Centre', 'Leads', 'Nurses', 'SH Nurses', 'Visits', 'Productivity', 'At Band', 'Pain', 'Patient ID'];
+  let tbl = '<thead><tr>' + headers.map(h => `<th>${h}</th>`).join('') + '</tr></thead><tbody>';
+  tbl += rows.map(r => '<tr>' + r.map(c => `<td>${c}</td>`).join('') + '</tr>').join('');
+  tbl += '</tbody>';
+  return `<div class="slide" data-slide="9"><div class="stagger">
+    <div class="slide-header"><div class="slide-eyebrow">PHC</div>
+    <div class="slide-title">PHC Facility Profiles</div>
+    <div class="slide-subtitle">Staffing, volume, productivity and quality — August 2026</div></div>
+    <div class="table-wrap"><table>${tbl}</table></div>
+  </div></div>`;
+}
+
+function buildSlide10() {
+  const centres = ['Mushairef', 'Al Madina', 'Al Hamidiya', 'Al Manama', 'Al Muzeirah'];
+  const staff = [11, 9, 8, 3, 0];
+  const charge = [2, 3, 4, 1, 1];
+  const asst = [2, 2, 1, 2, 1];
+  const max = 16;
+  const colors = ['#325277', '#5a8ab5', '#A9B4C6'];
+  let stacked = centres.map((c, i) => {
+    const total = staff[i] + charge[i] + asst[i];
+    return `<div class="stacked-row"><div class="bar-label">${c}</div>
+    <div class="stacked-track">
+      <div class="stacked-segment" style="width:${staff[i]/max*100}%;background:${colors[0]}">${staff[i] || ''}</div>
+      <div class="stacked-segment" style="width:${charge[i]/max*100}%;background:${colors[1]}">${charge[i]}</div>
+      <div class="stacked-segment" style="width:${asst[i]/max*100}%;background:${colors[2]}">${asst[i]}</div>
+    </div></div>`;
+  }).join('');
+  return `<div class="slide" data-slide="10"><div class="stagger">
+    <div class="slide-header"><div class="slide-eyebrow">PHC</div>
+    <div class="slide-title">PHC Workforce</div>
+    <div class="slide-subtitle">Staff mix by centre — August 2026</div></div>
+    <div class="chart-container"><div class="chart-title">PHC Staff by Role</div>
+    <div class="stacked-bar-chart">${stacked}</div>
+    <div class="chart-legend">
+      <div class="legend-item"><div class="legend-dot" style="background:${colors[0]}"></div>Staff Nurse / Midwife</div>
+      <div class="legend-item"><div class="legend-dot" style="background:${colors[1]}"></div>Charge Nurse / UM</div>
+      <div class="legend-item"><div class="legend-dot" style="background:${colors[2]}"></div>Assistant Nurse</div>
+    </div></div>
+  </div></div>`;
+}
+
+function buildSlide11() {
+  const data = [
+    { label: 'Al Muzeirah', value: 25.8 }, { label: 'Ajman PHS', value: 27.2 },
+    { label: 'Al Manama', value: 38.7 }, { label: 'Mushairef', value: 40.8 },
+    { label: 'Al Madina', value: 41.8 }, { label: 'Al Hamidiya', value: 55.2 },
+    { label: 'MFC Nuaimiya', value: 98.6 }, { label: 'MFC PHS', value: 103.8 }
+  ];
+  let bars = data.map(d => `<div class="bar-row">
+    <div class="bar-label">${d.label}</div>
+    <div class="bar-track" style="position:relative">
+      <div class="band-marker" style="left:${95/130*100}%"></div>
+      <div class="bar-fill" style="--target-width:${d.value/130*100}%; background: ${d.value >= 95 ? 'var(--green)' : 'var(--navy)'}"></div>
+    </div>
+    <div class="bar-value">${d.value}%</div></div>`).join('');
+  return `<div class="slide" data-slide="11"><div class="stagger">
+    <div class="slide-header"><div class="slide-eyebrow">PHC</div>
+    <div class="slide-title">Workforce vs Service Demand</div>
+    <div class="slide-subtitle">Productivity Jan–Aug 2026 average — all centres</div></div>
+    <div class="chart-container"><div class="chart-title">Productivity by Centre (dashed line = 95% band)</div>
+    <div class="bar-chart">${bars}</div></div>
+  </div></div>`;
+}
+
+function buildSlide13() {
+  return `<div class="slide" data-slide="13"><div class="stagger">
+    <div class="slide-header"><div class="slide-eyebrow">PHS</div>
+    <div class="slide-title">PHS & Medical Fitness Centre Services</div>
+    <div class="slide-subtitle">Scope of service — public health, travel, communicable disease and fitness</div></div>
+    <div class="stat-grid">
+      <div class="stat-card"><div class="stat-number">1</div><div class="stat-label">Medical fitness services</div><div class="stat-period">3 centres — 2,538 visits Aug 2026</div></div>
+      <div class="stat-card"><div class="stat-number">2</div><div class="stat-label">Travel clinic</div><div class="stat-period">PHS centre</div></div>
+      <div class="stat-card"><div class="stat-number">3</div><div class="stat-label">TB & communicable diseases</div></div>
+      <div class="stat-card"><div class="stat-number">4</div><div class="stat-label">Occupational health screening</div></div>
+      <div class="stat-card"><div class="stat-number">5</div><div class="stat-label">Vaccination campaigns</div><div class="stat-period">e.g. labour camp flu</div></div>
+      <div class="stat-card"><div class="stat-number">6</div><div class="stat-label">Public-health activity</div><div class="stat-period">Outreach, surveillance</div></div>
+    </div>
+    <div class="why-box"><div class="why-label">Why it matters</div><p>Much PHS work (outreach, campaigns, surveillance) is not counted in the productivity numerator — its 27.2% average partly reflects how activity is measured.</p></div>
+  </div></div>`;
+}
+
+function buildSlide14() {
+  const rows = [
+    ['Ajman PHS clinics', '6', '599', '27.2%', '19% – 33%'],
+    ['MFC — Nuaimiya', '2', '863', '98.6%', '81% – 128%'],
+    ['MFC — Mushrif', '2', '1,039', '120.8%', '97% – 168%'],
+    ['MFC — PHS', '1', '636', '103.8%', '64% – 149%']
+  ];
+  const hdr = ['Unit', 'Nurses', 'Visits (Aug)', 'Productivity', 'Range'];
+  let tbl = '<thead><tr>' + hdr.map(h => `<th>${h}</th>`).join('') + '</tr></thead><tbody>';
+  tbl += rows.map(r => '<tr>' + r.map(c => `<td>${c}</td>`).join('') + '</tr>').join('') + '</tbody>';
+  return `<div class="slide" data-slide="14"><div class="stagger">
+    <div class="slide-header"><div class="slide-eyebrow">PHS</div>
+    <div class="slide-title">PHS Workforce & Operations</div>
+    <div class="slide-subtitle">Small team, four units, very different workloads</div></div>
+    <div class="table-wrap"><table>${tbl}</table></div>
+    <div class="stat-grid">
+      <div class="stat-card"><div class="stat-number">12</div><div class="stat-label">PHS staff</div><div class="stat-period">9 RNs, 2 ANs, 1 admin</div></div>
+      <div class="stat-card"><div class="stat-number">7.0</div><div class="stat-label">yrs mean experience</div><div class="stat-period">lowest of 4 groups</div></div>
+    </div>
+    <div class="why-box"><div class="why-label">Why it matters</div><p>PHS combines the lowest clinic productivity, the least experienced team and falling satisfaction — a retention risk as much as a productivity one.</p></div>
+  </div></div>`;
+}
+
+function buildSlide15() {
+  return `<div class="slide" data-slide="15"><div class="stagger">
+    <div class="slide-header"><div class="slide-eyebrow">PHS</div>
+    <div class="slide-title">PHC–PHS Integration</div>
+    <div class="slide-subtitle">Shared resources and coordination between PHC and PHS</div></div>
+    <div class="content-block"><h3>Integration points</h3><ul>
+      <li>Staff flexing during school holidays (School Health → PHC)</li>
+      <li>Shared KPI master tracker across all nine sites</li>
+      <li>Single Nursing Operational Plan (26 objectives)</li>
+      <li>Joint oversight readiness register</li>
+    </ul></div>
+  </div></div>`;
+}
+
+function buildSlide17() {
+  const doughnutColors = ['#325277', '#5a8ab5', '#A9B4C6'];
+  const schools = [{ name: 'Mixed', count: 16 }, { name: 'Female', count: 9 }, { name: 'Male', count: 8 }];
+  const total = 33;
+  let dLabels = schools.map((s, i) => `<div class="doughnut-item">
+    <div class="doughnut-swatch" style="background:${doughnutColors[i]}"></div>
+    <div class="doughnut-text"><strong>${s.count}</strong> ${s.name}</div></div>`).join('');
+
+  // SVG doughnut
+  let angle = -90;
+  const r = 60, cx = 80, cy = 80, stroke = 22;
+  const circ = 2 * Math.PI * r;
+  let arcs = schools.map((s, i) => {
+    const pct = s.count / total;
+    const dash = pct * circ;
+    const gap = circ - dash;
+    const offset = -(angle / 360) * circ;
+    angle += pct * 360;
+    return `<circle cx="${cx}" cy="${cy}" r="${r}" fill="none" stroke="${doughnutColors[i]}" stroke-width="${stroke}"
+      stroke-dasharray="${dash} ${gap}" stroke-dashoffset="${-offset + circ/4}" style="transition: stroke-dasharray 1s"/>`;
+  }).join('');
+
+  const levels = [{ name: 'KG', val: 7 }, { name: 'Cycle 1', val: 7 }, { name: 'Cycle 2', val: 7 }, { name: 'Cycle 3', val: 7 }, { name: 'Multi-cycle', val: 5 }];
+  let levelBars = levels.map(l => `<div class="bar-row">
+    <div class="bar-label">${l.name}</div>
+    <div class="bar-track"><div class="bar-fill" style="--target-width:${l.val/8*100}%;background:var(--navy)"></div></div>
+    <div class="bar-value">${l.val}</div></div>`).join('');
+
+  return `<div class="slide" data-slide="17"><div class="stagger">
+    <div class="slide-header"><div class="slide-eyebrow">School Health</div>
+    <div class="slide-title">School Health Network</div>
+    <div class="slide-subtitle">33 schools from kindergarten to Cycle 3</div></div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:24px">
+      <div class="chart-container"><div class="chart-title">Schools by Gender Type</div>
+        <div class="doughnut-wrap">
+          <svg width="160" height="160" viewBox="0 0 160 160">${arcs}
+            <text x="${cx}" y="${cy}" text-anchor="middle" dominant-baseline="central" fill="var(--text-primary)" font-size="22" font-weight="700">33</text></svg>
+          <div class="doughnut-labels">${dLabels}</div>
+        </div></div>
+      <div class="chart-container"><div class="chart-title">Schools by Education Level</div>
+        <div class="bar-chart">${levelBars}</div></div>
+    </div>
+    <div class="stat-grid">
+      <div class="stat-card"><div class="stat-number">19,464</div><div class="stat-label">students recorded</div></div>
+      <div class="stat-card"><div class="stat-number">42</div><div class="stat-label">School Health staff</div></div>
+      <div class="stat-card"><div class="stat-number">2</div><div class="stat-label">nurses as cover</div><div class="stat-period">no fixed school</div></div>
+    </div>
+  </div></div>`;
+}
+
+function buildSlide18() {
+  return `<div class="slide" data-slide="18"><div class="stagger">
+    <div class="slide-header"><div class="slide-eyebrow">School Health</div>
+    <div class="slide-title">School Health Nursing Services</div>
+    <div class="slide-subtitle">Annual services delivered in 33 schools</div></div>
+    <div class="stat-grid">
+      <div class="stat-card"><div class="stat-number">1</div><div class="stat-label">Vision, hearing, BMI screening</div></div>
+      <div class="stat-card"><div class="stat-number">2</div><div class="stat-label">Vaccination programme</div></div>
+      <div class="stat-card"><div class="stat-number">3</div><div class="stat-label">Dental screening</div></div>
+      <div class="stat-card"><div class="stat-number">4</div><div class="stat-label">Health education</div></div>
+      <div class="stat-card"><div class="stat-number">5</div><div class="stat-label">Referral of at-risk students</div></div>
+      <div class="stat-card"><div class="stat-number">6</div><div class="stat-label">Physical exams</div></div>
+    </div>
+  </div></div>`;
+}
+
+function buildSlide19() {
+  return `<div class="slide" data-slide="19"><div class="stagger">
+    <div class="slide-header"><div class="slide-eyebrow">School Health</div>
+    <div class="slide-title">School Health Annual Cycle</div>
+    <div class="slide-subtitle">Key activities across the academic year</div></div>
+    <div class="content-block"><h3>Term-based rhythm</h3><ul>
+      <li><strong>Sep–Oct:</strong> Registration, physical exams, baseline screening</li>
+      <li><strong>Nov–Dec:</strong> Vaccination rounds, consent collection</li>
+      <li><strong>Jan–Mar:</strong> Follow-up screenings, health education campaigns</li>
+      <li><strong>Apr–Jun:</strong> Catch-up vaccinations, end-of-year reports, data validation</li>
+      <li><strong>Jul–Aug:</strong> Staff redeployment to PHC centres during holidays</li>
+    </ul></div>
+  </div></div>`;
+}
+
+function buildSlide20() {
+  return `<div class="slide" data-slide="20"><div class="stagger">
+    <div class="slide-header"><div class="slide-eyebrow">School Health</div>
+    <div class="slide-title">School Health Performance</div>
+    <div class="slide-subtitle">Strong people results; vaccination coverage below target</div></div>
+    <div class="stat-grid">
+      <div class="stat-card"><div class="stat-number">88.4%</div><div class="stat-label">vaccination coverage vs 100% target</div><div class="stat-period">July 2026</div></div>
+      <div class="stat-card"><div class="stat-number">90.9%</div><div class="stat-label">consent-form return</div><div class="stat-period">November reading</div></div>
+      <div class="stat-card"><div class="stat-number">93%</div><div class="stat-label">leadership validation current</div><div class="stat-period">38 of 41 · 14 Sep 2026</div></div>
+      <div class="stat-card"><div class="stat-number">+2.97</div><div class="stat-label">knowledge gain /10</div><div class="stat-period">leadership workshop · 16 May 2026</div></div>
+    </div>
+    <div class="content-block"><h3>Actions under way</h3><ul>
+      <li>Parent education and reminders via official school channels</li>
+      <li>Simplified and electronic consent forms</li>
+      <li>Catch-up sessions; pharmacy coordination for HPV stock</li>
+      <li>Target: ≥95% coverage per term (Operational Plan objective 14)</li>
+    </ul></div>
+    <div class="why-box"><div class="why-label">Why it matters</div><p>Coverage is the measure leadership will be asked about; adding School Health to the monthly KPI report would make it visible every month.</p></div>
+  </div></div>`;
+}
+
+function buildSlide22() {
+  return `<div class="slide" data-slide="22"><div class="stagger">
+    <div class="slide-header"><div class="slide-eyebrow">Quality</div>
+    <div class="slide-title">Patient Safety Priorities</div>
+    <div class="slide-subtitle">Active safety programmes and their current status</div></div>
+    <div class="stat-grid">
+      <div class="stat-card"><div class="stat-number">100%</div><div class="stat-label">Pain Reassessment compliance</div><div class="stat-period">all 6 centres since July</div></div>
+      <div class="stat-card"><div class="stat-number">46 / 48</div><div class="stat-label">Hand Hygiene centre-months met</div><div class="stat-period">Jan–Aug 2026</div></div>
+      <div class="stat-card"><div class="stat-number">48 / 48</div><div class="stat-label">Documentation met target</div><div class="stat-period">Jan–Aug 2026</div></div>
+    </div>
+    <div class="content-block"><h3>Active safety priorities</h3><ul>
+      <li>Patient Identification QIP — 100 staff trained across 9 sites</li>
+      <li>OVR awareness and monthly reporting</li>
+      <li>Fall prevention — EMR red-alert flag proposed</li>
+    </ul></div>
+  </div></div>`;
+}
+
+function buildSlide23() {
+  return `<div class="slide" data-slide="23"><div class="stagger">
+    <div class="slide-header"><div class="slide-eyebrow">Quality</div>
+    <div class="slide-title">Quality Improvement Portfolio</div>
+    <div class="slide-subtitle">Active QIPs and their current phase</div></div>
+    <div class="content-block"><h3>Active projects</h3><ul>
+      <li><strong>QIP-PTID-AJM-2026:</strong> Patient Identification — behaviour check phase (Sep–Dec)</li>
+      <li><strong>PHS_04 Productivity:</strong> Demand-based nurse assignment — planning phase</li>
+      <li><strong>SH_01 Vaccination:</strong> Coverage improvement — action plan active</li>
+      <li><strong>SH_02 Other:</strong> Consent form return improvement — action plan active</li>
+    </ul></div>
+  </div></div>`;
+}
+
+function buildSlide24() {
+  const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug'];
+  const vals = [3, 2, 4, 5, 5, 6, 3, 4];
+  let monthBars = months.map((m, i) => `<div class="bar-row">
+    <div class="bar-label">${m}</div>
+    <div class="bar-track"><div class="bar-fill" style="--target-width:${vals[i]/6*100}%;background:${vals[i]>=6?'var(--green)':'var(--navy)'}"></div></div>
+    <div class="bar-value">${vals[i]} / 6</div></div>`).join('');
+
+  return `<div class="slide" data-slide="24"><div class="stagger">
+    <div class="slide-header"><div class="slide-eyebrow">Quality</div>
+    <div class="slide-title">Patient Identification QIP</div>
+    <div class="slide-subtitle">Knowledge fixed in four weeks; practice must now hold at 100%</div></div>
+    <div class="chart-container"><div class="chart-title">Centres at 100% Patient ID — by month</div>
+    <div class="bar-chart">${monthBars}</div></div>
+    <div class="kirk-grid">
+      <div class="kirk-card"><div class="kirk-level">1</div><div class="kirk-name">Reaction</div><div class="kirk-status">Achieved — 53 of 65 rated 5/5</div></div>
+      <div class="kirk-card"><div class="kirk-level">2</div><div class="kirk-name">Learning</div><div class="kirk-status">Substantially achieved</div></div>
+      <div class="kirk-card"><div class="kirk-level">3</div><div class="kirk-name">Behaviour</div><div class="kirk-status">In progress — observation Sep–Dec</div></div>
+      <div class="kirk-card"><div class="kirk-level">4</div><div class="kirk-name">Results</div><div class="kirk-status">Pending — needs 3 months at 100%</div></div>
+    </div>
+    <div class="content-block"><p>100 staff trained across 9 sites, 12 Aug – 4 Sep 2026. Residual gaps: role of Emirates ID (78.3%) and three-identifier rule before medication (86.7%).</p></div>
+  </div></div>`;
+}
+
+function buildSlide26() {
+  return `<div class="slide" data-slide="26"><div class="stagger">
+    <div class="slide-header"><div class="slide-eyebrow">Workforce</div>
+    <div class="slide-title">Workforce Development</div>
+    <div class="slide-subtitle">Leadership capability is built in-house; currency is the risk</div></div>
+    <div class="stat-grid">
+      <div class="stat-card"><div class="stat-number">94%</div><div class="stat-label">ever validated</div><div class="stat-period">90 of 96 · 14 Sep 2026</div></div>
+      <div class="stat-card"><div class="stat-number">43%</div><div class="stat-label">validation current</div><div class="stat-period">41 of 96 · 14 Sep 2026</div></div>
+      <div class="stat-card"><div class="stat-number">92%</div><div class="stat-label">workshop reach</div><div class="stat-period">88 of 96 · 4.97/5</div></div>
+      <div class="stat-card"><div class="stat-number">d = 1.63</div><div class="stat-label">knowledge 7.15 → 9.84 /10</div><div class="stat-period">matched pairs, n = 88</div></div>
+    </div>
+    <div class="why-box"><div class="why-label">Why it matters</div><p>55 of 96 in-scope nurses have no current validation, including 3 unvalidated new joiners — re-validating before 12 Nov protects oversight criterion 8.</p></div>
+  </div></div>`;
+}
+
+function buildSlide27() {
+  return `<div class="slide" data-slide="27"><div class="stagger">
+    <div class="slide-header"><div class="slide-eyebrow">Workforce</div>
+    <div class="slide-title">EBP, Research & Innovation</div>
+    <div class="slide-subtitle">Innovation is visible; research is the next build</div></div>
+    <div class="content-block"><h3>Innovation Delivered in 2026</h3><ul>
+      <li>Monthly KPI master tracker with dashboard for all 9 sites</li>
+      <li>QR-code staff support ecosystem — 4 codes deployed</li>
+      <li>EMR red-alert flag for high fall-risk patients — proposed to Informatics</li>
+      <li>Kirkpatrick-evaluated training (Patient ID; leadership)</li>
+      <li>Four-year productivity trend analysis with RCA (2023–2026)</li>
+      <li>Technology & Innovation culture score 4.03 → 4.14; EHS rank 10th → 9th</li>
+    </ul></div>
+    <div class="why-box"><div class="why-label">Why it matters</div><p>Research and EBP are two of the nine Professional Development criteria assessed on 12 Nov; they are the priority build for the EBP Council.</p></div>
+  </div></div>`;
+}
+
+function buildSlide28() {
+  return `<div class="slide" data-slide="28"><div class="stagger">
+    <div class="slide-header"><div class="slide-eyebrow">Strategy</div>
+    <div class="slide-title">2026 Performance Dashboard</div>
+    <div class="slide-subtitle">Headline KPIs across all service lines</div></div>
+    <div class="stat-grid">
+      <div class="stat-card"><div class="stat-number" style="color:var(--green)">100%</div><div class="stat-label">Pain Reassessment</div><div class="stat-period"><span class="status-badge status-green">On target</span></div></div>
+      <div class="stat-card"><div class="stat-number" style="color:var(--green)">48/48</div><div class="stat-label">Documentation compliance</div><div class="stat-period"><span class="status-badge status-green">On target</span></div></div>
+      <div class="stat-card"><div class="stat-number" style="color:var(--amber)">46/48</div><div class="stat-label">Hand Hygiene met</div><div class="stat-period"><span class="status-badge status-amber">Near target</span></div></div>
+      <div class="stat-card"><div class="stat-number" style="color:var(--red)">0/48</div><div class="stat-label">Productivity at band</div><div class="stat-period"><span class="status-badge status-red">Below target</span></div></div>
+      <div class="stat-card"><div class="stat-number" style="color:var(--amber)">88.4%</div><div class="stat-label">Vaccination coverage</div><div class="stat-period"><span class="status-badge status-amber">Below 100%</span></div></div>
+      <div class="stat-card"><div class="stat-number" style="color:var(--red)">11/23</div><div class="stat-label">Oversight gaps</div><div class="stat-period"><span class="status-badge status-red">Action needed</span></div></div>
+    </div>
+  </div></div>`;
+}
+
+function buildSlide29() {
+  return `<div class="slide" data-slide="29"><div class="stagger">
+    <div class="slide-header"><div class="slide-eyebrow">Strategy</div>
+    <div class="slide-title">Key Challenges & Risks</div>
+    <div class="slide-subtitle">Seven risks, ranked by impact on patients and on 12 November</div></div>
+    <div class="content-block"><ul>
+      <li><strong style="color:var(--red)">HIGH:</strong> Oversight evidence gaps (11 of 23 criteria empty)</li>
+      <li><strong style="color:var(--red)">HIGH:</strong> Leadership validation lapsed (55 of 96)</li>
+      <li><strong style="color:var(--red)">HIGH:</strong> OVR monthly roll-up not consolidated</li>
+      <li><strong style="color:var(--red)">HIGH:</strong> Productivity structurally below band</li>
+      <li><strong style="color:var(--amber)">MEDIUM:</strong> Patient ID not yet at 100% everywhere</li>
+      <li><strong style="color:var(--amber)">MEDIUM:</strong> KPI target discrepancy (report vs plan)</li>
+      <li><strong style="color:var(--amber)">MEDIUM:</strong> PHS satisfaction declining</li>
+    </ul></div>
+    <div class="why-box"><div class="why-label">Why it matters</div><p>The four high risks are all visible to the 12 November assessors; three of them (evidence, validation, OVR roll-up) can be closed with protected time and a monthly consolidation step.</p></div>
+  </div></div>`;
+}
+
+function buildSlide30() {
+  return `<div class="slide" data-slide="30"><div class="stagger">
+    <div class="slide-header"><div class="slide-eyebrow">Strategy</div>
+    <div class="slide-title">2026–2027 Strategic Priorities</div>
+    <div class="slide-subtitle">Five priorities, each tied to a measure already in our plans</div></div>
+    <div class="numbered-list">
+      <div class="numbered-item"><div><div class="item-title">Close the oversight gaps</div><div class="item-body">Evidence for criteria 02–04, 10–11, 13–18; re-validate 55 lapsed leadership records.</div><div class="item-measure">All 23 criteria evidenced by 12 Nov 2026</div></div></div>
+      <div class="numbered-item"><div><div class="item-title">Match staffing to demand</div><div class="item-body">Redeploy to volume; roster to NHPPD; decide the standard for low-volume sites.</div><div class="item-measure">NHPPD/FTE variance ±10%</div></div></div>
+      <div class="numbered-item"><div><div class="item-title">Hold patient safety at 100%</div><div class="item-body">PID behaviour checks and mock scenarios; OVR awareness; scale fall prevention.</div><div class="item-measure">PID 100% at all sites Oct–Dec 2026</div></div></div>
+      <div class="numbered-item"><div><div class="item-title">Make School Health visible</div><div class="item-body">Add School Health KPIs to the monthly report; verify coverage denominators; decide the AN pilot.</div><div class="item-measure">Vaccination ≥95% per term</div></div></div>
+      <div class="numbered-item"><div><div class="item-title">Lift culture, EBP and data quality</div><div class="item-body">2026–27 culture plan; activate EBP council and ≥1 research topic; one target register.</div><div class="item-measure">Culture score up; ≥1 approved topic</div></div></div>
+    </div>
+  </div></div>`;
+}
+
+function buildSlide31() {
+  return `<div class="slide" data-slide="31"><div class="stagger">
+    <div class="cover-slide">
+      <div class="cover-service-lines">PHC &nbsp;|&nbsp; PHS &nbsp;|&nbsp; School Health</div>
+      <div class="cover-title" style="font-size:clamp(24px,4vw,40px)">Vision for Ajman Nursing</div>
+      <div class="cover-desc">One integrated, evidence-based nursing service — delivering safe, productive and measurable care across every community touchpoint in Ajman.</div>
+      <div class="cover-meta">Emirates Health Services · Ajman Primary Healthcare · Nursing Administration</div>
+      <div style="margin-top:16px;font-size:12px;color:var(--text-muted)">Classification: Internal</div>
+    </div></div>`;
+}
+
+function showSlide(n) {
+  if (n < 1 || n > 31) return;
+  current = n;
+  document.querySelectorAll('.slide').forEach(s => s.classList.remove('active'));
+  const slide = document.querySelector(`[data-slide="${n}"]`);
+  if (slide) {
+    slide.classList.add('active');
+    // Animate bars
+    setTimeout(() => {
+      slide.querySelectorAll('.bar-fill').forEach(b => b.classList.add('animated'));
+    }, 200);
+  }
+  document.getElementById('counter').textContent = `${n} / 31`;
+  document.getElementById('progress').style.width = `${(n/31)*100}%`;
+  document.getElementById('prevBtn').disabled = n === 1;
+  document.getElementById('nextBtn').disabled = n === 31;
+  updateSectionNav();
+  try { localStorage.setItem('ajman-slide', n); } catch(e) {}
+}
+
+function go(dir) { showSlide(current + dir); }
+
+function buildSectionNav() {
+  const nav = document.getElementById('sectionNav');
+  nav.innerHTML = SECTIONS.map(s =>
+    `<button class="section-pill" data-start="${s.start}" onclick="showSlide(${s.start})">${s.name}</button>`
+  ).join('');
+}
+
+function updateSectionNav() {
+  document.querySelectorAll('.section-pill').forEach(p => {
+    const sec = SECTIONS.find(s => s.name === p.textContent);
+    p.classList.toggle('active', sec && current >= sec.start && current <= sec.end);
+  });
+  // Scroll active pill into view
+  const active = document.querySelector('.section-pill.active');
+  if (active) active.scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
+  // Update TOC
+  document.querySelectorAll('.toc-item').forEach(t => {
+    t.classList.toggle('current', parseInt(t.dataset.slide) === current);
+  });
+}
+
+function buildToc() {
+  const list = document.getElementById('tocList');
+  const titles = [
+    'Cover','Organizational Structure','Service Network','At a Glance','Executive Summary',
+    '— PRIMARY HEALTHCARE —','PHC Overview','PHC Services','Facility Profiles','PHC Workforce','Workforce vs Demand',
+    '— PUBLIC HEALTH SERVICES —','PHS Services','PHS Workforce','PHC–PHS Integration',
+    '— SCHOOL HEALTH —','School Network','SH Services','Annual Cycle','SH Performance',
+    '— QUALITY & SAFETY —','Patient Safety','QI Portfolio','Patient ID QIP',
+    '— WORKFORCE —','Workforce Development','EBP & Innovation',
+    'Performance Dashboard','Challenges & Risks','Strategic Priorities','Vision'
+  ];
+  list.innerHTML = titles.map((t, i) => {
+    const n = i + 1;
+    const isSec = t.startsWith('—');
+    return `<div class="toc-item ${isSec ? 'section-head' : ''}" data-slide="${n}" onclick="showSlide(${n});closeToc()">
+      <span class="toc-num">${isSec ? '' : n}</span><span class="toc-text">${isSec ? t.replace(/—/g,'').trim() : t}</span></div>`;
+  }).join('');
+}
+
+function openToc() { document.getElementById('tocOverlay').classList.add('open'); }
+function closeToc() { document.getElementById('tocOverlay').classList.remove('open'); }
+
+// Keyboard navigation
+document.addEventListener('keydown', e => {
+  if (e.key === 'ArrowRight' || e.key === 'ArrowDown') { e.preventDefault(); go(1); }
+  if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') { e.preventDefault(); go(-1); }
+  if (e.key === 'Escape') closeToc();
+});
+
+// Touch swipe
+let touchStart = 0;
+document.addEventListener('touchstart', e => { touchStart = e.touches[0].clientX; }, { passive: true });
+document.addEventListener('touchend', e => {
+  const diff = touchStart - e.changedTouches[0].clientX;
+  if (Math.abs(diff) > 60) go(diff > 0 ? 1 : -1);
+}, { passive: true });
+
+// Restore position
+let saved = 1;
+try { saved = parseInt(localStorage.getItem('ajman-slide')) || 1; } catch(e) {}
+
+buildSlides();
+showSlide(saved);
+</script>
